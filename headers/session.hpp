@@ -1,3 +1,6 @@
+/*
+Copyright(C) 2020 Justin Pember
+*/
 #pragma once
 #include <iostream>
 #include "configRead.hpp"

@@ -1,3 +1,7 @@
+/*
+Copyright(C) 2020 Justin Pember
+*/
+
 #pragma once
 #include "session.hpp"
 #include <fstream>

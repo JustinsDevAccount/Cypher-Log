@@ -1,3 +1,6 @@
+/*
+Copyright(C) 2020 Justin Pember
+*/
 #include "../headers/log.hpp"
 
 void writeError(int errorCode, std::string sessionPath, std::fstream errorLogStream)
@@ -6,6 +9,10 @@ void writeError(int errorCode, std::string sessionPath, std::fstream errorLogStr
 	if (errorLogStream.is_open())
 	{
 		errorLogStream.open(std::ios::app);
+	}
+	else
+	{
+		errorLogStream.open(sessionPath + "session.log", std::ios::app);
 	}
 }
 void writeError(int errorCode, Session sessionToRead)

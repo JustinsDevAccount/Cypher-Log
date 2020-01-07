@@ -12,5 +12,14 @@ void writeErrorVerbose(int errorCode, std::string message, std::string sessionPa
 void writeErrorVerbose(int errorCode, std::string message, Session sessionToRead);
 
 //GENERAL LOGGING-----------------------------------------------------
+void writeLog(std::string title, std::string message, std::fstream logStream);
+void writeLog(std::string title, std::string message, Session session);
 
 //MISC LOGGING--------------------------------------------------------
+//Clears the log file (deletes content), does not delete the .log file
+void clearLog(std::fstream logStream);
+void clearLog(Session session);
+
+//Output .log file to console
+void outputLogToConsole(std::fstream logStream);
+void outputLogToConsole(Session session);
