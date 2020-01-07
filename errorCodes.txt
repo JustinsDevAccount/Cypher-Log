@@ -1,0 +1,2 @@
+List of error codes
+-2 = Error opening config file
