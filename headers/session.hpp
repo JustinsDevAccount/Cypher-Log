@@ -3,6 +3,7 @@ Copyright(C) 2020 Justin Pember
 */
 #pragma once
 #include <iostream>
+#include <fstream>
 #include "configRead.hpp"
 class Session
 {
@@ -29,10 +30,12 @@ public:
 	Constructor for loading an existing session
 	*/
 	Session(std::string sessionPath);
-	loadSession(std::string filePath);
-	saveSession(std::string filePath, bool closeOnCompletion);
-	exportSession(std::string fileTypeToExportTo, bool closeOnCompletion);
-	reloadSession(std::string filePath, bool reParseConfigFile);
+
+	//Session Main Methods
+	int loadSession(std::string filePath);
+	int saveSession(std::string filePath, bool closeOnCompletion);
+	int exportSession(std::string fileTypeToExportTo, bool closeOnCompletion);
+	int reloadSession(std::string filePath, bool reParseConfigFile);
 	/*
 	@param is the actual path of the session.config file, session to read the config to
 	*/

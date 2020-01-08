@@ -9,10 +9,10 @@ void writeError(int errorCode, std::string errorMessage, std::string sessionPath
 	if (errorLogStream.is_open())
 	{
 		//Setting stream to append to file
-		errorLogStream.open(std::ios::app);
+		errorLogStream.open(sessionPath + "session.config", std::ios::app);
 		//Writing in format <Message> | Return code: <error code>
 		//Example== Error writing to log file | Return code: -56
-		erroLogStream << '\n' << errorMessage << " | Return code = " << errorCode;
+		errorLogStream << '\n' << errorMessage << " | Return code = " << errorCode;
 		return;
 	}
 	else
