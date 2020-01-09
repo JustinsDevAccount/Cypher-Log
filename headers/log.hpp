@@ -4,7 +4,7 @@
 
 //ERROR LOGGING-------------------------------------------------------
 //Writes the errors to a log file located in the database directory
-void writeError(int errorCode, std::string errorMessage, std::string sessionPath, std::fstream errorLogStream);
+void writeError(int errorCode, std::string errorMessage, std::string sessionPath, std::string logName);
 void writeError(int errorCode, std::string errorMessage, Session sessionToRead());
 
 //Writes error to log and displays code to console
