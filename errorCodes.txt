@@ -1,2 +1,10 @@
 List of error codes
+
+FILE PROCESS ERROR
 -2 = Error opening config file
+-3 = Error opening log file
+
+IO ERROR
+-4 = Error / Log Message exceeded character limit
+
+OTHER ERROR

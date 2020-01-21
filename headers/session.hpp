@@ -26,11 +26,11 @@ public:
 	Setting the logging functions to a freind to allow access
 	to allow access to private variables
 	*/
-	friend void writeError(int errorCode, std::string errorMessage, Session sessionToRead);
-	friend void writeErrorVerbose(int errorCode, std::string message, Session sessionToRead);
-	friend void writeLog(std::string title, std::string message, Session session);
-	friend void clearLog(Session session);
-	friend void outputLogToConsole(Session session);
+	friend void writeError(int errorCode, std::string errorMessage, Session &sessionToRead);
+	friend void writeErrorVerbose(int errorCode, std::string errorMessage, Session &sessionToRead);
+	friend void writeLog(std::string title, std::string message, Session &session);
+	friend void clearLog(Session &session);
+	friend void outputLogToConsole(Session &session);
 
 	/*
 	Constructor for creating a new session
@@ -48,7 +48,7 @@ public:
 	int reloadSession(std::string filePath, bool reParseConfigFile);
 	
 	/*
-	@param is the actual path of the session.config file, session to read the config to
+	@param configPath is the actual path of the session.config file, session to read the config to
 	*/
 	void getSessionConfig(std::string configPath, Session sessionToUse());
 };
