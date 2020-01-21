@@ -35,18 +35,20 @@ void writeError(int errorCode, std::string errorMessage, std::string sessionPath
 }
 void writeError(int errorCode, std::string errorMessage, Session &sessionToRead)
 {
+	std::fstream* errorLogStream;
+
 	//Checking length of error
 	if (isUnderCharLimit(errorMessage))
 	{
 		writeErrorVerbose(-4, "Could not write error; message exceeded char limit", sessionToRead);
 	}
 	//Checking if file is already open
-	if (sessionToRead.errorLogStream.is_open())
+	if (errorLogStream->is_open())
 	{
 		//Setting stream to append to file
-		sessionToRead.errorLogStream.open(sessionToRead.m_sessionPath + "session.log", std::ios::app);
+		errorLogStream->open(sessionToRead.m_sessionPath + "session.log", std::ios::app);
 		//Checking the file open process has failed
-		if (sessionToRead.errorLogStream.fail())
+		if (errorLogStream->fail())
 		{
 			std::cout << "Log file failed to initalize | Return code: -3";
 			return;
@@ -55,17 +57,17 @@ void writeError(int errorCode, std::string errorMessage, Session &sessionToRead)
 		{
 			//Writing in format <Message> | Return code: <error code>
 			//Example== [ERROR] Error writing to log file | Return code: -56
-			sessionToRead.errorLogStream << '\n' << "[ERROR]" << errorMessage << " | Return code = " << errorCode;
+			*errorLogStream << '\n' << "[ERROR]" << errorMessage << " | Return code = " << errorCode;
 			return;
 		}
 	}
 	else
 	{
 		//Creating the log file and setting to append
-		sessionToRead.errorLogStream.open(std::ios::app);
+		errorLogStream->open(sessionToRead.m_logPath);
 		//Writing in format <Message> | Return code: <error code>
 		//**Example** == Error writing to log file | Return code: -56
-		sessionToRead.errorLogStream << '\n' << errorMessage << " | Return code = " << errorCode;
+		*errorLogStream << '\n' << errorMessage << " | Return code = " << errorCode;
 		return;
 	}
 }
@@ -85,7 +87,7 @@ void writeLog(std::string title, std::string message, std::string sessionPath, s
 	//Opening file and setting to append
 	std::fstream* logStream;
 	logStream->open((sessionPath + logName), std::ios::app);
-	logStream << '\n' << "[LOG]" << title << "::" << message;
+	*logStream << '\n' << "[LOG]" << title << "::" << message;
 	delete(logStream);
 	return;
 }

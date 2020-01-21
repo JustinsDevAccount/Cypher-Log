@@ -4,18 +4,24 @@ Copyright(C) 2020 Justin Pember
 
 #pragma once
 #include <iostream>
+#include <fstream>
+
+//Data format for credential file output
+struct dataCatagories;
 
 //High level config readers------------------------------------------
-
-/*This will return a template struct of the data format of each credential
-@param is the path of dataCatagories.config file
+/*
+Fixes all credential output errors
+@param sessionPath; full path to session data folder
 */
-int getCredentialOutputFormatConfig(std::string configPath, struct outputStruct);
+void fixCredOutputErrors(std::string sessionPath);
 
-/*This will return a template struct of the data format of each credential
-@param is the session's path, the function will attempt to find the config file
+/*
+Fixes credential output errors for one file
+@param sessionPath; full path to session data folder
+@param pointerToFile; pointer number that leads to file with error
 */
-int getCredentialOutputFormatConfigWithSessionPath(std::string sessionPath, struct outputStruct);
+void fixCredOutputErrors(std::string sessionPath, int pointerToFile);
 
 //Low level config readers, DO NOT USE THESE OUTSIDE THIS FILE & CORRELATING CPP FILE-------
 
@@ -26,3 +32,11 @@ Finds config file path
 2=dataCatagories
 */
 std::string findConfigFilePath(std::string sessionPath, int typeOfConfigFile);
+
+/*
+Checks for errors in the credential outputs, it mostly checks for format errors
+@param sessionPath is the full path of the folder where the session data is held
+@param pointerArray is the array with the pointers to files that have errors
+Returns boolean value if errors are found, if found, the pointers are dumped into the array
+*/
+bool checkForCredOutputErrors(std::string sessionPath, int pointerArray);

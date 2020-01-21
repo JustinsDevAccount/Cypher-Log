@@ -8,18 +8,16 @@ Copyright(C) 2020 Justin Pember
 class Session
 {
 private:
-	//Removing default cconstructor
+	//Removing default constructor
 	Session();
+	//---------------------------
 
 	//Main operating variables
 	std::string m_sessionName;
 	bool m_sessionEncrypted;
 	std::string m_sessionDefaultMode;
 	std::string m_sessionPath;
-
-	//File streams, pass these as references only
-	std::fstream errorLogStream;
-	std::fstream configStream;
+	std::string m_logPath;
 
 public:
 	/*
