@@ -5,6 +5,8 @@ Copyright(C) 2020 Justin Pember
 #include "configRead.hpp"
 
 using namespace std;
+
+//Program will detect changes in format, modifying order is supported
 dataCatagories
 {
 string Name;

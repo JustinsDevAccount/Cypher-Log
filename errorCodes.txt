@@ -6,5 +6,9 @@ FILE PROCESS ERROR
 
 IO ERROR
 -4 = Error / Log Message exceeded character limit
+-5 = Error making session directory when constructing
 
 OTHER ERROR
+-6 = Error creating new session, sessionName contained illegal characters
+-7 = Error making session.config file, fstream could not create file
+-8 = Error making pointers.index file, fstream could not create file

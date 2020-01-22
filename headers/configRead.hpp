@@ -10,6 +10,7 @@ Copyright(C) 2020 Justin Pember
 struct dataCatagories;
 
 //High level config readers------------------------------------------
+
 /*
 Fixes all credential output errors
 @param sessionPath; full path to session data folder
@@ -21,7 +22,8 @@ Fixes credential output errors for one file
 @param sessionPath; full path to session data folder
 @param pointerToFile; pointer number that leads to file with error
 */
-void fixCredOutputErrors(std::string sessionPath, int pointerToFile);
+void fixCredOutputErrors(std::string sessionPath, unsigned int pointerToFile);
+
 
 //Low level config readers, DO NOT USE THESE OUTSIDE THIS FILE & CORRELATING CPP FILE-------
 
@@ -31,7 +33,7 @@ Finds config file path
 1=session
 2=dataCatagories
 */
-std::string findConfigFilePath(std::string sessionPath, int typeOfConfigFile);
+std::string findConfigFilePath(std::string sessionPath, unsigned int typeOfConfigFile);
 
 /*
 Checks for errors in the credential outputs, it mostly checks for format errors
@@ -39,4 +41,10 @@ Checks for errors in the credential outputs, it mostly checks for format errors
 @param pointerArray is the array with the pointers to files that have errors
 Returns boolean value if errors are found, if found, the pointers are dumped into the array
 */
-bool checkForCredOutputErrors(std::string sessionPath, int pointerArray);
+bool checkForCredOutputErrors(std::string sessionPath, unsigned int pointerArray);
+
+/*
+Returns file path to .cred file
+@param pointer is the pointer to the file from the pointers.index file
+*/
+std::string returnFilename(unsigned int pointer);

@@ -4,6 +4,8 @@ Copyright(C) 2020 Justin Pember
 #pragma once
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <direct.h>
 #include "configRead.hpp"
 class Session
 {
@@ -17,6 +19,7 @@ private:
 	bool m_sessionEncrypted;
 	std::string m_sessionDefaultMode;
 	std::string m_sessionPath;
+	std::string m_sessionWorkingDirectory;
 	std::string m_logPath;
 
 public:
@@ -24,6 +27,7 @@ public:
 	Setting the logging functions to a freind to allow access
 	to allow access to private variables
 	*/
+
 	friend void writeError(int errorCode, std::string errorMessage, Session &sessionToRead);
 	friend void writeErrorVerbose(int errorCode, std::string errorMessage, Session &sessionToRead);
 	friend void writeLog(std::string title, std::string message, Session &session);
@@ -31,11 +35,20 @@ public:
 	friend void outputLogToConsole(Session &session);
 
 	/*
-	Constructor for creating a new session
+	Constructor for creating a new session || NOT SUPPORTED YET
+	@param pathToBeConstructedIn; full path or use . to use current directory
+	@param sessionName; name of session and folder to to store data in
 	*/
 	Session(std::string pathToBeConstructedIn, std::string sessionName);
 	/*
+	/*
+	Constructor for creating a new session
+	@param pathToBeConstructedIn; full path or use . to use current directory
+	*/
+	Session(std::string sessionName, bool exitOnCreation);
+	/*
 	Constructor for loading an existing session
+	@param sessionPath; path to session data folder
 	*/
 	Session(std::string sessionPath);
 
@@ -49,4 +62,5 @@ public:
 	@param configPath is the actual path of the session.config file, session to read the config to
 	*/
 	void getSessionConfig(std::string configPath, Session sessionToUse());
+
 };
