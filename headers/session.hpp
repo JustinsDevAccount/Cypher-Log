@@ -43,7 +43,7 @@ public:
 	/*
 	/*
 	Constructor for creating a new session
-	@param pathToBeConstructedIn; full path or use . to use current directory
+	@param pathToBeConstructedIn; full path or use only session name to use current directory
 	*/
 	Session(std::string sessionName, bool exitOnCreation);
 	/*

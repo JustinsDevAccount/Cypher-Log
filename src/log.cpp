@@ -96,3 +96,16 @@ void writeLog(std::string title, std::string message, Session &session)
 {
 	writeLog(title, message, session.m_sessionPath, "session.log");
 }
+
+void clearLog(std::string pathFromSessionFolder)
+{
+	std::fstream* logStream;
+	logStream->open(pathFromSessionFolder, std::ios::out | std::ios::trunc);
+	if (logStream->fail())
+	{
+		std::cout << std::endl << "Failed to clear log file | Error code: -3";
+	}
+	logStream->close();
+	delete(logStream);
+	return;
+}

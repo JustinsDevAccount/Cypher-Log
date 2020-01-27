@@ -39,8 +39,11 @@ Writes a log entry with the format "[LOG]<title>::<message>"
 void writeLog(std::string title, std::string message, Session &session);
 
 //MISC LOGGING--------------------------------------------------------
-//Clears the log file (deletes content), does not delete the .log file
-void clearLog(std::fstream logStream);
+/*
+Clears the log file (deletes content), does not delete the .log file
+@param filename; path to log file if using non-default name (for example "logFile/nonDefaultLogName.log")
+*/
+void clearLog(std::string pathFromSessionFolder);
 void clearLog(Session &session);
 
 //Output .log file to console

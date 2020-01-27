@@ -5,7 +5,7 @@ Copyright(C) 2020 Justin Pember
 
 std::string returnFilename(unsigned int pointer)
 {
-	//TODO: make this shorter and faster
+	//TODO: make this more practical
 	std::string* temp_concat1;
 	std::string* temp_concat2;
 	std::string* temp_concat3;

@@ -7,5 +7,6 @@ using namespace std;
 
 int main()
 {
+	Session("Hello", false);
 	return 0;
 }
