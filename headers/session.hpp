@@ -6,6 +6,7 @@ Copyright(C) 2020 Justin Pember
 #include <fstream>
 #include <string>
 #include <direct.h>
+#include "templates.hpp"
 #include "configRead.hpp"
 class Session
 {
