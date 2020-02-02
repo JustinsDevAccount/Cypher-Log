@@ -6,7 +6,6 @@ Copyright(C) 2020 Justin Pember
 #include <fstream>
 #include <string>
 #include <direct.h>
-#include "templates.hpp"
 #include "configRead.hpp"
 class Session
 {
@@ -46,7 +45,7 @@ public:
 	Constructor for creating a new session
 	@param pathToBeConstructedIn; full path or use only session name to use current directory
 	*/
-	Session(std::string sessionName, bool exitOnCreation);
+	Session(std::string sessionName, bool getDataFromUser);
 	/*
 	Constructor for loading an existing session
 	@param sessionPath; path to session data folder
@@ -54,10 +53,10 @@ public:
 	Session(std::string sessionPath);
 
 	//Session Main Methods
-	int loadSession(std::string filePath);
-	int saveSession(std::string filePath, bool closeOnCompletion);
+	int loadSession(std::string sessionPath);
+	int saveSession(std::string  sessionPath, bool closeOnCompletion);
 	int exportSession(std::string fileTypeToExportTo, bool closeOnCompletion);
-	int reloadSession(std::string filePath, bool reParseConfigFile);
+	int reloadSession(std::string  sessionPath, bool reParseConfigFile);
 	
 	/*
 	@param configPath is the actual path of the session.config file, session to read the config to
